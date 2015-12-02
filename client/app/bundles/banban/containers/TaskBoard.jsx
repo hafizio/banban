@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Note from '../components/Note';
+import Notes from '../components/task_board/Notes';
 import uuid from 'node-uuid';
 import _ from 'lodash';
 
@@ -7,7 +7,10 @@ export default class TaskBoard extends React.Component {
   constructor(props) {
     super(props);
     _.bindAll(this, 'addNote');
-    this.state = { notes: this.props.tasks };
+
+    this.state = { 
+      notes: this.props.tasks
+    };
   }
 
   render() {
@@ -16,7 +19,7 @@ export default class TaskBoard extends React.Component {
     return (
       <div>
         <button className="add-note" onClick={this.addNote}>+</button>
-        <ul className="notes">{notes.map(this.renderNote)}</ul>
+        <Notes notes={notes} />
       </div>
     );
   }
@@ -28,13 +31,5 @@ export default class TaskBoard extends React.Component {
         task: 'New task'
       }])
     });
-  }
-
-  renderNote(note) {
-    return (
-      <li key={`note${note.id}`}>
-        <Note task={note.task} />
-      </li>
-    );
   }
 }
