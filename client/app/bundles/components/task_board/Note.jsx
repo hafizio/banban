@@ -49,7 +49,7 @@ export default class Note extends React.Component {
     this.props.onEdit(e.target.value);
 
     this.setState({
-      editing: false,
+      editing: false
     });
   }
 }
