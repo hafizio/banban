@@ -11,5 +11,4 @@ html
 
     script(src="vendor-bundle.js")
     script(src="app-bundle.js")
-    script.
-      ReactDOM.render(React.createElement(HelloWorldApp, {name: "Hafiz"}), document.getElementById('app'))
+    script ReactDOM.render(React.createElement(TaskBoardView, {tasks: [{id: 1, task: "Mandi"}]}) , document.getElementById('app'))

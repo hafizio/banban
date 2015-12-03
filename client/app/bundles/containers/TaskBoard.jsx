@@ -15,7 +15,7 @@ export default class TaskBoard extends React.Component {
     const notes = this.state.notes;
 
     return (
-      <div>
+      <div className="task-board">
         <button className="add-note" onClick={this.addNote}>+</button>
         <Notes
           notes={notes}
