@@ -1,10 +1,8 @@
-import React, { PropTypes } from 'react';
-import _ from 'lodash';
+import React from 'react';
 
 export default class Note extends React.Component {
   constructor(props) {
     super(props);
-    _.bindAll(this, ['renderEdit', 'renderTask', 'edit', 'checkEnter', 'finishEdit']);
 
     this.state = {
       editing: false
@@ -21,31 +19,46 @@ export default class Note extends React.Component {
     );
   }
 
-  renderEdit() {
+  renderEdit = () => {
     return (
-      <input type="text" value={this.props.task} onBlur={this.finishEdit} onKeyPress={this.checkEnter} />
+      <input
+        type="text" 
+        defaultValue={this.props.task}
+        onBlur={this.finishEdit} 
+        onKeyPress={this.checkEnter} />
     );
   }
 
-  renderTask() {
+  renderTask = () => {
+    const onDelete = this.props.onDelete;
+
     return (
-      <div onClick={this.edit}>{this.props.task}</div>
+      <div onClick={this.edit}>
+        <span className="task">{this.props.task}</span>
+        {onDelete ? this.renderDelete() : null}
+      </div>
     );
   }
 
-  edit() {
+  renderDelete = () => {
+    return (
+      <button className="delete" onClick={this.props.onDelete}>x</button>
+    );
+  }
+
+  edit = () => {
     this.setState({
       editing: true
     });
   }
 
-  checkEnter(e) {
+  checkEnter = (e) => {
     if (e.key === 'Enter') {
       this.finishEdit(e);
     }
   }
 
-  finishEdit(e) {
+  finishEdit = (e) => {
     this.props.onEdit(e.target.value);
 
     this.setState({

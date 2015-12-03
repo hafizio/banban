@@ -1,6 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Note from './Note';
-import _ from 'lodash';
 
 export default class Notes extends React.Component {
   constructor(props) {
@@ -15,10 +14,13 @@ export default class Notes extends React.Component {
     );
   }
 
-  renderNote(note) {
+  renderNote = (note) => {
     return (
-      <li key={`note${note.id}`}>
-        <Note task={note.task} />
+      <li className="note" key={note.id}>
+        <Note
+          task={note.task}
+          onEdit={this.props.onEdit.bind(null, note.id)}
+          onDelete={this.props.onDelete.bind(null, note.id)} />
       </li>
     );
   }
