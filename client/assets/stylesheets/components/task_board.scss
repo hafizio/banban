@@ -1,0 +1,24 @@
+.task-board {
+  width: 20%;
+  margin-left: 50px;
+}
+
+.note {
+  background-color: pink;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  .delete {
+    color: red;
+    float: right;
+    padding: 0;
+    border: none;
+    visibility: hidden;
+    cursor: pointer;
+  }
+
+  &:hover .delete {
+    visibility: visible;
+  }
+}

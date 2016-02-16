@@ -5,16 +5,5 @@
 // This is where you can add your own styles and override bootstrap styles
 // utilizing bootstrap variables and mixins.
 
-.this-works {
-  color: orange !important;
-}
+@import './components/task_board';
 
-body {
-}
-
-.task-board {
-  background-color: pink;
-  border-radius: 5px;
-  width: 20%;
-  margin-left: 50px;
-}

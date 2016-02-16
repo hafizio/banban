@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/shakacode/react-webpack-rails-tutorial",
   "dependencies": {
+    "alt": "^0.17.9",
     "node-uuid": "^1.4.7"
   }
 }
